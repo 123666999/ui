@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>专注时钟 - 现代风格</title>
+    <link rel="stylesheet" href="modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <span>专注时钟</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>主页</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-list-check"></i>
+                    <span>任务</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>数据</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-gear"></i>
+                    <span>设置</span>
+                </a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="https://via.placeholder.com/40" alt="用户头像">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">用户名</div>
+                    <div class="user-level">专注达人</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索任务...">
+                </div>
+                <div class="top-actions">
+                    <a href="mobile.html" class="btn-icon switch-version" title="切换到移动版">
+                        <i class="fas fa-mobile-alt"></i>
+                    </a>
+                    <button class="btn-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <div class="dashboard">
+                <div class="welcome-section">
+                    <h1>早上好，用户名</h1>
+                    <p>今天是星期三，2023年11月15日</p>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">本周专注次数</div>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>23%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">8.5</div>
+                            <div class="stat-label">专注小时</div>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">完成任务</div>
+                        </div>
+                        <div class="stat-trend down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-timer-section">
+                    <div class="timer-container">
+                        <div class="timer-tabs">
+                            <button class="timer-tab active">专注</button>
+                            <button class="timer-tab">短休息</button>
+                            <button class="timer-tab">长休息</button>
+                        </div>
+                        
+                        <div class="timer-circle">
+                            <svg class="timer-progress" viewBox="0 0 100 100">
+                                <circle class="timer-progress-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="timer-progress-fill" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="timer-display">25:00</div>
+                        </div>
+                        
+                        <div class="timer-controls">
+                            <button class="timer-btn secondary">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                            <button class="timer-btn primary">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="timer-btn secondary">
+                                <i class="fas fa-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="current-task-panel">
+                        <h2>当前任务</h2>
+                        <div class="task-select">
+                            <select>
+                                <option>完成现代风格界面设计</option>
+                                <option>准备团队会议演示</option>
+                                <option>回复客户邮件</option>
+                            </select>
+                        </div>
+                        <div class="task-tags">
+                            <span class="tag">设计</span>
+                            <span class="tag">高优先级</span>
+                        </div>
+                        <div class="task-progress">
+                            <div class="progress-label">
+                                <span>进度</span>
+                                <span>2/4</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="task-notes">
+                            <p>使用现代设计风格，包含侧边栏导航和数据统计功能</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="upcoming-tasks">
+                    <div class="section-header">
+                        <h2>即将到来的任务</h2>
+                        <button class="btn-text">查看全部</button>
+                    </div>
+                    
+                    <div class="task-list">
+                        <div class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <div class="task-title">准备团队会议演示</div>
+                                <div class="task-meta">
+                                    <span><i class="fas fa-calendar"></i> 今天</span>
+                                    <span><i class="fas fa-clock"></i> 2个番茄钟</span>
+                                </div>
+                            </div>
+                            <div class="task-priority high"></div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <div class="task-title">回复客户邮件</div>
+                                <div class="task-meta">
+                                    <span><i class="fas fa-calendar"></i> 今天</span>
+                                    <span><i class="fas fa-clock"></i> 1个番茄钟</span>
+                                </div>
+                            </div>
+                            <div class="task-priority medium"></div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-content">
+                                <div class="task-title">更新项目文档</div>
+                                <div class="task-meta">
+                                    <span><i class="fas fa-calendar"></i> 明天</span>
+                                    <span><i class="fas fa-clock"></i> 3个番茄钟</span>
+                                </div>
+                            </div>
+                            <div class="task-priority low"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="productivity-chart">
+                    <div class="section-header">
+                        <h2>专注趋势</h2>
+                        <div class="chart-period">
+                            <button class="period-btn active">周</button>
+                            <button class="period-btn">月</button>
+                            <button class="period-btn">年</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height: 40%">
+                                <div class="bar-tooltip">2小时</div>
+                                <div class="bar-label">一</div>
+                            </div>
+                            <div class="chart-bar" style="height: 70%">
+                                <div class="bar-tooltip">3.5小时</div>
+                                <div class="bar-label">二</div>
+                            </div>
+                            <div class="chart-bar" style="height: 50%">
+                                <div class="bar-tooltip">2.5小时</div>
+                                <div class="bar-label">三</div>
+                            </div>
+                            <div class="chart-bar" style="height: 30%">
+                                <div class="bar-tooltip">1.5小时</div>
+                                <div class="bar-label">四</div>
+                            </div>
+                            <div class="chart-bar" style="height: 60%">
+                                <div class="bar-tooltip">3小时</div>
+                                <div class="bar-label">五</div>
+                            </div>
+                            <div class="chart-bar" style="height: 20%">
+                                <div class="bar-tooltip">1小时</div>
+                                <div class="bar-label">六</div>
+                            </div>
+                            <div class="chart-bar" style="height: 10%">
+                                <div class="bar-tooltip">0.5小时</div>
+                                <div class="bar-label">日</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="modern.js"></script>
+</body>
+</html>

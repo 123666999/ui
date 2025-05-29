@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄时钟 - 原型设计图</title>
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            overflow-y: auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+        
+        .page-title h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .page-title p {
+            margin: 10px 0 0;
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .prototypes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .prototype {
+            width: 375px;
+            border-radius: 12px;
+            overflow: visible;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+        
+        .prototype-header {
+            background: linear-gradient(135deg, #4E65FF, #92EFFD);
+            color: white;
+            padding: 12px 16px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        /* 直接使用page作为内容容器，去除多余嵌套 */
+        .page {
+            padding: 15px;
+            min-height: 600px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            display: block !important;
+            background-color: #f8f9fa;
+        }
+        
+        .page-footer {
+            text-align: center;
+            margin: 30px 0;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <h1>番茄时钟应用 原型设计图</h1>
+        <p>版本: 1.0 | 设计: UI设计团队</p>
+    </div>
+    
+    <div class="prototypes-container">
+        <!-- 主页原型 -->
+        <div class="prototype">
+            <div class="prototype-header">主页</div>
+            <div class="page home-page">
+                <div class="welcome-section">
+                    <h1>2024</h1>
+                    <p>早上好，用户</p>
+                </div>
+                
+                <div class="app-grid">
+                    <div class="app-item" data-page="timer">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <span>计时器</span>
+                    </div>
+                    <div class="app-item" data-page="tasks">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #4E65FF, #92EFFD);">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <span>任务</span>
+                    </div>
+                    <div class="app-item" data-page="stats">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #33D9B2, #00CCFF);">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <span>统计</span>
+                    </div>
+                    <div class="app-item" data-page="settings">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #B06AB3, #4568DC);">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span>设置</span>
+                    </div>
+                </div>
+                
+                <div class="current-focus glass-card">
+                    <div class="card-header">
+                        <h3>当前专注</h3>
+                        <span class="tag">进行中</span>
+                    </div>
+                    <div class="focus-content">
+                        <div class="focus-info">
+                            <h4>完成项目原型设计</h4>
+                            <p><i class="far fa-clock"></i> 剩余 18:45</p>
+                        </div>
+                        <button class="control-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="focus-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%"></div>
+                        </div>
+                        <span>25%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 计时器原型 -->
+        <div class="prototype">
+            <div class="prototype-header">计时器</div>
+            <div class="page timer-page">
+                <div class="timer-section">
+                    <div class="timer-tabs">
+                        <button class="timer-tab active">专注</button>
+                        <button class="timer-tab">短休息</button>
+                        <button class="timer-tab">长休息</button>
+                    </div>
+                    
+                    <div class="timer-circle">
+                        <svg class="timer-progress" width="180" height="180" viewBox="0 0 100 100">
+                            <circle class="timer-progress-bg" cx="50" cy="50" r="45" fill="none" stroke-width="4"/>
+                            <circle class="timer-progress-fill" cx="50" cy="50" r="45" fill="none" stroke-width="4" stroke-dasharray="283" stroke-dashoffset="283"/>
+                        </svg>
+                        <div class="timer-display">25:00</div>
+                    </div>
+                    
+                    <div class="timer-controls">
+                        <button class="timer-btn secondary"><i class="fas fa-redo-alt"></i></button>
+                        <button class="timer-btn primary"><i class="fas fa-play"></i></button>
+                        <button class="timer-btn secondary"><i class="fas fa-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 任务原型 -->
+        <div class="prototype">
+            <div class="prototype-header">任务</div>
+            <div class="page tasks-page">
+                <div class="section-header">
+                    <h2>我的任务</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">今天</button>
+                        <button class="filter-btn">已完成</button>
+                    </div>
+                </div>
+                
+                <div class="task-list glass-card">
+                    <div class="task-item">
+                        <div class="task-checkbox"></div>
+                        <div class="task-content">
+                            <h4 class="task-title">完成项目原型设计</h4>
+                            <p class="task-meta"><i class="far fa-clock"></i> 今天 14:00</p>
+                        </div>
+                        <div class="task-priority high"></div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-checkbox"></div>
+                        <div class="task-content">
+                            <h4 class="task-title">准备周会演示文稿</h4>
+                            <p class="task-meta"><i class="far fa-clock"></i> 今天 16:30</p>
+                        </div>
+                        <div class="task-priority medium"></div>
+                    </div>
+                    
+                    <div class="task-item completed">
+                        <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+                        <div class="task-content">
+                            <h4 class="task-title">回复客户邮件</h4>
+                            <p class="task-meta"><i class="far fa-check-circle"></i> 已完成</p>
+                        </div>
+                        <div class="task-priority low"></div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="task-checkbox"></div>
+                        <div class="task-content">
+                            <h4 class="task-title">更新项目文档</h4>
+                            <p class="task-meta"><i class="far fa-clock"></i> 明天 10:00</p>
+                        </div>
+                        <div class="task-priority medium"></div>
+                    </div>
+                </div>
+                
+                <div class="add-task-btn">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 统计原型 -->
+        <div class="prototype">
+            <div class="prototype-header">统计</div>
+            <div class="page stats-page">
+                <div class="section-header">
+                    <h2>专注统计</h2>
+                    <div class="period-selector">
+                        <button class="period-btn active">周</button>
+                        <button class="period-btn">月</button>
+                        <button class="period-btn">年</button>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>12</h3>
+                            <p>今日专注</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #4E65FF, #92EFFD);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>5:25</h3>
+                            <p>专注时长</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #33D9B2, #00CCFF);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>完成任务</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #B06AB3, #4568DC);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>3</h3>
+                            <p>连续天数</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container glass-card">
+                    <h3>本周专注时长</h3>
+                    <div class="chart-placeholder">
+                        <div class="chart-bar" style="height: 30%;"><span>一</span></div>
+                        <div class="chart-bar" style="height: 60%;"><span>二</span></div>
+                        <div class="chart-bar" style="height: 45%;"><span>三</span></div>
+                        <div class="chart-bar" style="height: 80%;"><span>四</span></div>
+                        <div class="chart-bar" style="height: 50%;"><span>五</span></div>
+                        <div class="chart-bar active" style="height: 75%;"><span>六</span></div>
+                        <div class="chart-bar" style="height: 20%;"><span>日</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置原型 -->
+        <div class="prototype">
+            <div class="prototype-header">设置</div>
+            <div class="page settings-page">
+                <div class="section-header">
+                    <h2>设置</h2>
+                </div>
+                
+                <div class="settings-list glass-card">
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>通知</h4>
+                            <p>管理应用通知设置</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>计时器设置</h4>
+                            <p>自定义专注和休息时长</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>主题</h4>
+                            <p>自定义应用外观</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>声音</h4>
+                            <p>自定义提示音效</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>数据同步</h4>
+                            <p>管理云端同步设置</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="settings-content">
+                            <h4>关于</h4>
+                            <p>版本 2.0.1</p>
+                        </div>
+                        <div class="settings-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">
+        © 2024 番茄时钟应用 | 此原型图仅用于设计参考
+    </div>
+</body>
+</html>
